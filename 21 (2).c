@@ -8,7 +8,6 @@
 #define MAX_LOCATION_LENGTH 50
 #define MAX_JOB_LENGTH 50
 
-// Structure for Candidate
 typedef struct Candidate {
     int id;
     char name[MAX_NAME_LENGTH];
@@ -19,7 +18,6 @@ typedef struct Candidate {
     struct Candidate* next;
 } Candidate;
 
-// Structure for Job Application
 typedef struct JobApplication {
     int candidate_id;
     char job[MAX_JOB_LENGTH];
@@ -33,7 +31,6 @@ typedef struct RecentApplication {
     struct RecentApplication* next;
 } RecentApplication;
 
-// Function to create a new candidate
 Candidate* create_candidate(int id, char* name, char* skills, int experience, char* education, char* location) {
     Candidate* candidate = (Candidate*)malloc(sizeof(Candidate));
     candidate->id = id;
@@ -55,7 +52,6 @@ JobApplication* create_job_application(int candidate_id, char* job) {
     return application;
 }
 
-// Function to create a new recent application
 RecentApplication* create_recent_application(int candidate_id, char* job) {
     RecentApplication* application = (RecentApplication*)malloc(sizeof(RecentApplication));
     application->candidate_id = candidate_id;
@@ -64,7 +60,6 @@ RecentApplication* create_recent_application(int candidate_id, char* job) {
     return application;
 }
 
-// Function to register a candidate
 void register_candidate(Candidate** head, int id, char* name, char* skills, int experience, char* education, char* location) {
     Candidate* new_candidate = create_candidate(id, name, skills, experience, education, location);
     if (*head == NULL) {
@@ -79,7 +74,7 @@ void register_candidate(Candidate** head, int id, char* name, char* skills, int 
     printf("Candidate %s registered.\n", name);
 }
 
-// Function to apply for a job
+
 void apply_for_job(JobApplication** head, RecentApplication** recent_head, int candidate_id, char* job) {
     JobApplication* new_application = create_job_application(candidate_id, job);
     if (*head == NULL) {
@@ -112,7 +107,7 @@ void apply_for_job(JobApplication** head, RecentApplication** recent_head, int c
     printf("Candidate %d applied for %s.\n", candidate_id, job);
 }
 
-// Function to update candidate profile
+
 void update_profile(Candidate* head, int id, char* name, char* skills, int experience, char* education, char* location) {
     Candidate* temp = head;
     while (temp != NULL) {
@@ -130,7 +125,7 @@ void update_profile(Candidate* head, int id, char* name, char* skills, int exper
     printf("Candidate not found.\n");
 }
 
-// Function to print candidate details
+
 void print_candidate(Candidate* head, int id) {
     Candidate* temp = head;
     while (temp != NULL) {
@@ -147,7 +142,7 @@ void print_candidate(Candidate* head, int id) {
     printf("Candidate not found.\n");
 }
 
-// Function to print all candidates
+
 void print_all_candidates(Candidate* head) {
     Candidate* temp = head;
     while (temp != NULL) {
@@ -162,7 +157,6 @@ void print_all_candidates(Candidate* head) {
     }
 }
 
-// Function to print all job applications
 void print_all_job_applications(JobApplication* head) {
     JobApplication* temp = head;
     while (temp != NULL) {
@@ -173,7 +167,7 @@ void print_all_job_applications(JobApplication* head) {
     }
 }
 
-// Function to print all recent applications
+
 void print_all_recent_applications(RecentApplication* head) {
     RecentApplication* temp = head;
     while (temp != NULL) {
@@ -290,4 +284,5 @@ int main() {
     } while (choice != 8);
 
     return 0;
+
 }
