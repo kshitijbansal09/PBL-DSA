@@ -24,7 +24,6 @@ typedef struct JobApplication {
     struct JobApplication* next;
 } JobApplication;
 
-// Structure for Recent Application
 typedef struct RecentApplication {
     int candidate_id;
     char job[MAX_JOB_LENGTH];
@@ -43,7 +42,6 @@ Candidate* create_candidate(int id, char* name, char* skills, int experience, ch
     return candidate;
 }
 
-// Function to create a new job application
 JobApplication* create_job_application(int candidate_id, char* job) {
     JobApplication* application = (JobApplication*)malloc(sizeof(JobApplication));
     application->candidate_id = candidate_id;
@@ -286,3 +284,4 @@ int main() {
     return 0;
 
 }
+
